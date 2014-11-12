@@ -1,6 +1,5 @@
-class ScrapImageUploader < CarrierWave::Uploader::Base
+class ScrapImageUploader < BaseUploader
   include CarrierWave::MiniMagick
-  storage :fog
 
   version :fill_thumb do
     process :resize_to_fill => [100,100]

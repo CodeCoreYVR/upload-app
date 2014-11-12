@@ -1,3 +1,2 @@
-class ScrapTextUploader < CarrierWave::Uploader::Base
-  storage :fog
+class ScrapTextUploader < BaseUploader
 end
