@@ -13,3 +13,7 @@ gem 'haml'
 gem 'carrierwave'
 gem 'pry-rails'
 gem 'mini_magick'
+
+group :development, :test do
+  gem 'dotenv-rails'
+end
