@@ -4,4 +4,7 @@
     = f.submit
 
 - @scraps.each do |scrap|
-  = image_tag scrap.image.url
+  %p
+    %h2= scrap.read_attribute(:image)
+    = image_tag scrap.image.url(:fill_thumb)
+    = image_tag scrap.image.url(:fit_thumb)

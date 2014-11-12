@@ -12,3 +12,4 @@ gem 'haml'
 # File upload
 gem 'carrierwave'
 gem 'pry-rails'
+gem 'mini_magick'
