@@ -6,7 +6,12 @@ class ScrapsController < ApplicationController
 
   def create
     @scrap = Scrap.new(scrap_params)
-    @scrap.image = scrap_params[:image]
+
+    if scrap_params[:image].present?
+      @scrap.image = scrap_params[:image]
+    elsif scrap_params[:text_file].present?
+      @scrap.text_file = scrap_params[:text_file]
+    end
 
     if @scrap.save
       redirect_to scraps_path
@@ -20,6 +25,6 @@ class ScrapsController < ApplicationController
 
 
   def scrap_params
-    params.require(:scrap).permit(:image)
+    params.require(:scrap).permit(:image, :text_file)
   end
 end
