@@ -1,2 +1,7 @@
+#new-scrap-form
+  = form_for Scrap.new do |f|
+    = f.file_field :image
+    = f.submit
+
 - @scraps.each do |scrap|
   = image_tag scrap.image.url
