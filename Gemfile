@@ -11,9 +11,10 @@ gem 'haml'
 
 # File upload
 gem 'carrierwave'
-gem 'pry-rails'
 gem 'mini_magick'
+gem 'fog'
 
 group :development, :test do
   gem 'dotenv-rails'
+  gem 'pry-rails'
 end
