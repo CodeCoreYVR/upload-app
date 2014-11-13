@@ -5,6 +5,17 @@ class ScrapImageForm
     @submitUrl = options.submitUrl || '/scraps'
     @attachHandlers()
 
+  startLoading: ->
+    opts = {
+      lines: 13, length: 20, width: 10, radius: 30, corners: 1, rotate: 0, direction: 1,
+      color: '#000', speed: 1, trail: 60, shadow: false, hwaccel: false, className: 'spinner',
+      zIndex: 2e9, top: '50%', left: '50%'
+    }
+    $('body').spin(opts)
+
+  stopLoading: ->
+    $('body').spin(false)
+
   attachHandlers: ->
     @$form.submit (e) =>
       # Stop from using default submission (page refresh)
@@ -23,6 +34,7 @@ class ScrapImageForm
   uploadFile: (file) ->
     formData = new FormData()
     formData.append('scrap[image]', file)
+    @startLoading()
     $.ajax
       url: @submitUrl
       data: formData
@@ -33,6 +45,7 @@ class ScrapImageForm
       complete: (response, type) =>
         data = JSON.parse(response.responseText)
         @renderImage(data)
+        @stopLoading()
 
   renderImage: (options) ->
     $newImage = $('<div>')

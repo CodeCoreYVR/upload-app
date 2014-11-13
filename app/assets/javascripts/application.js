@@ -14,4 +14,5 @@
 //= require jquery_ujs
 //= require jquery.iframe-transport.js
 //= require jquery.remotipart.js
+//= require spin
 //= require_tree .
