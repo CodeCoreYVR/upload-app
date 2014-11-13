@@ -2,6 +2,11 @@ class ScrapsController < ApplicationController
 
   def index
     @scraps = Scrap.all
+
+    if params[:example] == 'remotipart'
+      render :remotipart_index
+      return
+    end
   end
 
   def create
@@ -20,7 +25,17 @@ class ScrapsController < ApplicationController
         redirect_to scraps_path
       end
 
-      format.js
+      format.js do
+        if remotipart_submitted?
+          render :create
+        else
+          render json: {
+            image: @scrap.read_attribute(:image),
+            fillThumb: @scrap.image.url(:fill_thumb),
+            fitThumb: @scrap.image.url(:fit_thumb),
+          }
+        end
+      end
     end
   end
 
