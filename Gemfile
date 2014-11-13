@@ -13,6 +13,7 @@ gem 'haml'
 gem 'carrierwave'
 gem 'mini_magick'
 gem 'fog'
+gem 'remotipart'
 
 group :development, :test do
   gem 'dotenv-rails'

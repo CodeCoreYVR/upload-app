@@ -13,11 +13,14 @@ class ScrapsController < ApplicationController
       @scrap.text_file = scrap_params[:text_file]
     end
 
-    if @scrap.save
-      redirect_to scraps_path
-    else
-      # And show an error!
-      redirect_to scraps_path
+    @scrap.save
+
+    respond_to do |format|
+      format.html do
+        redirect_to scraps_path
+      end
+
+      format.js
     end
   end
 

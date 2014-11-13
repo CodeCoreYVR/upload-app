@@ -1,12 +1,12 @@
 #new-scrap-form.image-form
   %h2.scrap-form-title Image
-  = form_for Scrap.new do |f|
+  = form_for Scrap.new, remote: true do |f|
     = f.file_field :image
     = f.submit
 
 #new-scrap-form.text-form
   %h2.scrap-form-title Text file
-  = form_for Scrap.new do |f|
+  = form_for Scrap.new, remote: true do |f|
     = f.file_field :text_file
     = f.submit
 
